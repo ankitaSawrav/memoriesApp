@@ -1,0 +1,25 @@
+{
+  "name": "memoriesapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ankitaSawrav/memoriesapp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ankitaSawrav/memoriesapp/issues"
+  },
+  "homepage": "https://github.com/ankitaSawrav/memoriesapp#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "nodemon": "^2.0.19",
+    "package.json": "^2.0.1"
+  }
+}
