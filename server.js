@@ -4,11 +4,14 @@ const app = express();
 // const db = require("./database/db.js");
 const port = process.env.PORT || 3001 // using different port than normal one 
 
+
+app.use(express.static('./client/build'))
 app.use(express.json());
 
 app.get('/api/test', (req, res) => {   
         res.json({results:"success"})
   })
+
 
 // start the web server
 app.listen(port, () => {
