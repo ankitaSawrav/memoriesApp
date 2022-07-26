@@ -18,7 +18,6 @@ const memoriesData =  [
 function Memories() {
    const handleAddMemories = ()=>{
     console.log('in here ')
-       return 
     }
 
     return (
