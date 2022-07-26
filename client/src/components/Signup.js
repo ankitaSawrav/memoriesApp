@@ -14,6 +14,7 @@ class  Signup extends Component{
             errormsg : ""
         }
       }
+
     
    
     handleChange=(event)=>{
@@ -32,7 +33,10 @@ class  Signup extends Component{
         console.log(this.state, "state")
     }
     handleSubmit=()=>{
-        
+        const { username, email, password }=this.state
+    //    axios for session 
+          
+
     }
  
 
@@ -67,7 +71,7 @@ class  Signup extends Component{
                             onChange={(event) => this.handleChange(event)}
                         />
                         
-                        <button className="createUser" type='submit'>Create User</button>
+                        <button className="createUser" type='submit'>Sign up</button>
                         <span>
                             Already have an account? 
                             
