@@ -10,7 +10,7 @@ if (process.env.NODE_ENV === "production") {
   });
 } else {
   db = new pg.Pool({
-    database: "plantr",
+    database: 'memories', //remember database name has to be in single quotes
   });
 }
 

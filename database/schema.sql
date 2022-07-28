@@ -4,10 +4,10 @@ DROP TABLE IF EXISTS memories Cascade;
 CREATE TABLE users (
     id serial PRIMARY KEY,
     username VARCHAR(255),
-    email text UNIQUE,
+    email text ,
     password_hash VARCHAR(255)  
 );
-CREATE TABLE memories (
+CREATE TABLE memories_data (
     id serial PRIMARY KEY,
     userid integer REFERENCES users(id),
     title VARCHAR(255),

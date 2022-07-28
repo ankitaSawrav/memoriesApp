@@ -1,3 +1,12 @@
 -material ui 
 
 yarn add @mui/material @emotion/react @emotion/styled
+
+-- after setting proxy and adding add this to pacage.json in server file 
+ "start-dev": "nodemon server.js"
+
+ now from terminal you can run npm run start dev
+
+npm install pg 
+npm install express-session
+npm install connect-pg-simple

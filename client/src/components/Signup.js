@@ -2,20 +2,29 @@ import { Component } from "react"
 import Link from '@mui/material/Link';
 import Box from '@mui/material/Box';
 import { Autocomplete } from "@mui/material";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import axios from 'axios';
+// import { useHistory } from "react-router-dom";
+import {useNavigate} from 'react-router-dom';
+
 
 
 class  Signup extends Component{
+   
+
     constructor(props) {
         super(props)
         this.state = { 
             username: "" ,
             email:"",
             password : "",
-            errormsg : ""
+            errormsg : "",
+            success:""
         }
       }
 
-    
+     
+ 
    
     handleChange=(event)=>{
         console.log(event.target.className, "target evnt")
@@ -32,9 +41,28 @@ class  Signup extends Component{
         }
         console.log(this.state, "state")
     }
-    handleSubmit=()=>{
-        const { username, email, password }=this.state
-    //    axios for session 
+    handleSubmit= (event)=>{
+        
+        event.preventDefault();
+       
+        const data = {
+            username: this.state.username,
+            email: this.state.email,
+            password: this.state.password,
+          };
+          console.log(data,"data")
+       
+        // sending data to server database
+         axios.post("/api/users",data)
+        .then((response) => {
+         console.log(response.data.success)
+         if (response.data.success){
+            this.setState({...this.state,['success']:true})
+            console.log(this.state,"satet data for success")
+         
+           
+         }
+          });
           
 
     }
@@ -71,11 +99,19 @@ class  Signup extends Component{
                             onChange={(event) => this.handleChange(event)}
                         />
                         
-                        <button className="createUser" type='submit'>Sign up</button>
+                        <button className="createUser" 
+                            type='submit'
+                            onSubmit = {(event)=>this.handleSubmit(event)}
+                            >Sign up
+                        </button>
                         <span>
                             Already have an account? 
-                            
-                            <Link to='/login'>Login</Link>
+                            {/* <Routes> */}
+                            <Link to='/'>Login</Link>
+                            {/* <Route path='/' element={<HomePage/>}/> */}
+                            {/* </Routes> */}
+                           
+                        
                         </span>
                 </form>
             </Box>     

@@ -1,25 +1,61 @@
 const express = require("express");
 require("dotenv").config();
+const pg = require("pg");
 const db = require("./database/db.js");
 const app = express();
 const expressSession = require("express-session");
 const pgSession = require("connect-pg-simple")(expressSession);
 //controllers
 const userControllers = require("./controllers/users.js");
-const userControllers = require("./controllers/memories.js");
-const sessionController = require("./controllers/session");
+// const MemoriesControllers = require("./controllers/memories.js");
+const sessionController = require("./controllers/session.js");
 
-// const db = require("./database/db.js");
+
 const port = process.env.PORT || 3001 // using different port than normal one 
 
 
 app.use(express.static('./client/build'))
 app.use(express.json());
 
+//code for create session
+app.use(
+  expressSession({
+    store: new pgSession({
+      pool: db,
+      createTableIfMissing: true,
+    }),
+    secret: "here ",
+  })
+);
+
+//middleware
+app.use((req, res, next) => {
+  console.log(`${new Date()} ${req.method} ${req.path}`);
+  next();
+});
+
+app.use("/api/users", userControllers);
+app.use("/api/session",sessionController)
+
 app.get('/api/test', (req, res) => {   
         res.json({results:"success"})
   })
+// app.get('/api/users',(req,res)=>{
+//   // res.json({results:"success",message:"here am i"});
+//   const sql = 'SELECT * FROM users';
+//     db.query(sql).then((dbResult) => {
+//       console.log(dbResult,"result")
+//       res.json(dbResult.rows);
+//     });
+// })
 
+
+app.use((err, req, res, next) => {
+  let status = err.status || 500;
+  let message = err.message || "something went wrong";
+  res.status(status).json({ message });
+  next(err);
+});
 
 // start the web server
 app.listen(port, () => {
