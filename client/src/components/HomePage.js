@@ -1,10 +1,13 @@
 import Memories from './Memories'
 
-function HomePage (){
+function HomePage ({isLoggedin, user}){
+    console.log(isLoggedin,"islogedin at homepage ")
     return (
         <div className="container"> 
         <h1>Memo</h1>
-        <Memories></Memories>
+    
+        <Memories user={user}></Memories>
+      
     </div>
     )
 }

@@ -1,16 +1,17 @@
 
-import Link from '@mui/material/Link';
+
 import Box from '@mui/material/Box';
-import { Autocomplete } from "@mui/material";
-import { BrowserRouter, Routes, Route} from "react-router-dom";
+
+// import { BrowserRouter, Routes, Route} from "react-router-dom";
 import axios from 'axios';
-import { useState} from 'react'
-// import { useHistory } from "react-router-dom";
+import { useState} from 'react';
+import { Link } from "react-router-dom";
+
 
 
 
 function Login(props){
-    // let history = useHistory()
+    console.log(props,"props")
     const[useremail,setEmail]= useState("")
     const[password,setPassword]= useState("")
 
@@ -46,13 +47,14 @@ function Login(props){
         console.log(error.response.data.message,"error")
       })
 
-    //   history.push("/");
+  
     }
 
 
 
     return (
-        <div className="container-login">
+        !props.isLoggedin? 
+         <div className="container-login">
             <Box>
                 <h1>Login</h1>
                 <form onSubmit={(event) => handleSubmit(event)}>
@@ -89,16 +91,17 @@ function Login(props){
                         <span>
                             Don't have an account? 
                             {/* <Routes> */}
-                            <Link to='/SignUp'>Signin</Link>
                             {/* <Route path='/' element={<HomePage/>}/> */}
                             {/* </Routes> */}
                            
                         
                         </span>
+                            <Link to='/Signup'>Signup</Link>
                 </form>
             </Box>     
-        </div>
-        
+        </div> 
+        : ""
+       
     )
 }
 

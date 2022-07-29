@@ -1,5 +1,6 @@
-import AddMemories from "./AddMemories"
+import AddMemories from "./AddMemories.js"
 import DisplayMemories from "./DisplayMemories.js"
+
 
 const memoriesData =  [
     
@@ -16,10 +17,7 @@ const memoriesData =  [
    
 ]
 function Memories() {
-   const handleAddMemories = ()=>{
-    console.log('in here ')
-    }
-
+   
     return (
        <div className="Main-container">
         <div className="DisplayMemories">

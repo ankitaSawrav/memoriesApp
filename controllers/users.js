@@ -24,7 +24,7 @@ function generateHash(pass) {
   router.post("/",(req,res)=>{
     let username = req.body.username;
     let email = req.body.email;
-    let password = req.body.password_hash
+    let password = req.body.password
     console.log(req.body,"req")
 
     // function generateHash(pass) {

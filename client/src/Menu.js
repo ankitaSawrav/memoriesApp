@@ -1,8 +1,20 @@
 
 import { NavLink } from "react-router-dom";
 import {link} from 'react'
+import { Button } from "@mui/material";
+import axios from "axios";
+import {useNavigate} from 'react-router-dom';
+// import Logout from './components/Logout.js'
 
 function Menu(props) {
+    const navigate = useNavigate();
+    const handleLogout = ({isLoggedin,setIsLoggedin})=>{
+        // console.log("inhere for logout")
+        // setIsLoggedin(false)
+        // axios.delete("/api/session").then(() => {
+        //     navigate('/')
+        // })
+    }
     return (    
         <div className="Menu-container">
             <nav className='nav-bar'>
@@ -19,11 +31,9 @@ function Menu(props) {
                 <p>Hello {props.user}</p>
                 <NavLink className={({ isActive }) => isActive ? "red" : "blue"}  to='/AddMemories'>AddMemories</NavLink>
                 <br></br>
-                <NavLink className={({ isActive }) => isActive ? "red" : "blue"}  to='/logout'>Logout</NavLink>
+                <Button className="logout-btn"   onClick={()=>{handleLogout(props.isLoggedin,props.setIsLoggedin)}}>Logout</Button>
                 </div>
                 )}
-                
-
             </nav>
         </div>
     )

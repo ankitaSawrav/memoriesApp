@@ -52,4 +52,10 @@ router.post('/',(req,res)=>{
   // res.json({ success: true });
 })
 
+router.delete("/", (req, res) => {
+  req.session.destroy(() => {
+    res.json({ message: "logged out successfully" });
+  });
+});
+
 module.exports = router

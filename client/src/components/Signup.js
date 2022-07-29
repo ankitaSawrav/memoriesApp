@@ -1,11 +1,11 @@
 import { Component } from "react"
-import Link from '@mui/material/Link';
 import Box from '@mui/material/Box';
-import { Autocomplete } from "@mui/material";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+// import { Autocomplete } from "@mui/material";
+// import { BrowserRouter, Routes, Route } from "react-router-dom";
 import axios from 'axios';
-// import { useHistory } from "react-router-dom";
-import {useNavigate} from 'react-router-dom';
+import { Link } from "react-router-dom";
+
+// import {useNavigate} from 'react-router-dom';
 
 
 
@@ -27,10 +27,10 @@ class  Signup extends Component{
  
    
     handleChange=(event)=>{
-        console.log(event.target.className, "target evnt")
+        // console.log(event.target.className, "target evnt")
     
         if(event.target.className === "username"){
-         console.log("in name if loop")
+        //  console.log("in name if loop")
             this.setState({...this.state,[event.target.className]:event.target.value})
         }
         if(event.target.className === "email"){
@@ -39,10 +39,10 @@ class  Signup extends Component{
         if(event.target.className ==="password"){
             this.setState({...this.state,[event.target.className]:event.target.value})
         }
-        console.log(this.state, "state")
+        // console.log(this.state, "state")
     }
     handleSubmit= (event)=>{
-        
+        // let navigate = useNavigate()
         event.preventDefault();
        
         const data = {
@@ -55,19 +55,17 @@ class  Signup extends Component{
         // sending data to server database
          axios.post("/api/users",data)
         .then((response) => {
-         console.log(response.data.success)
+         console.log(response.data)
          if (response.data.success){
-            this.setState({...this.state,['success']:true})
+            // this.setState({...this.state,success:true})
             console.log(this.state,"satet data for success")
-         
-           
+        //  login padge
+        //    navigate("/login")
          }
           });
           
 
     }
- 
-
     render(){
         return (
         <div className="container">
@@ -107,7 +105,7 @@ class  Signup extends Component{
                         <span>
                             Already have an account? 
                             {/* <Routes> */}
-                            <Link to='/'>Login</Link>
+                            <Link to='/Login'>Login</Link>
                             {/* <Route path='/' element={<HomePage/>}/> */}
                             {/* </Routes> */}
                            
