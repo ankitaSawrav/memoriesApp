@@ -6,6 +6,7 @@ import Box from '@mui/material/Box';
 import axios from 'axios';
 import { useState} from 'react';
 import { Link } from "react-router-dom";
+import {useNavigate} from 'react-router-dom';
 
 
 
@@ -14,7 +15,7 @@ function Login(props){
     console.log(props,"props")
     const[useremail,setEmail]= useState("")
     const[password,setPassword]= useState("")
-
+    const navigate = useNavigate();
     const handleChange=(event)=>{
         if(event.target.className === "email"){
             console.log("inhere ")
@@ -41,6 +42,7 @@ function Login(props){
       .then((response)=>{
         console.log(response.data,"response")
         props.setIsLoggedin(true)
+        navigate('/', {replace: true});
         
       })
       .catch(error=>{

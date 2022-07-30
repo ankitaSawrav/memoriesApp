@@ -7,7 +7,7 @@ const expressSession = require("express-session");
 const pgSession = require("connect-pg-simple")(expressSession);
 //controllers
 const userControllers = require("./controllers/users.js");
-// const MemoriesControllers = require("./controllers/memories.js");
+const memoriesController = require("./controllers/memories.js");
 const sessionController = require("./controllers/session.js");
 
 
@@ -36,19 +36,11 @@ app.use((req, res, next) => {
 
 app.use("/api/users", userControllers);
 app.use("/api/session",sessionController)
+app.use("/api/memories",memoriesController)
 
 app.get('/api/test', (req, res) => {   
         res.json({results:"success"})
   })
-// app.get('/api/users',(req,res)=>{
-//   // res.json({results:"success",message:"here am i"});
-//   const sql = 'SELECT * FROM users';
-//     db.query(sql).then((dbResult) => {
-//       console.log(dbResult,"result")
-//       res.json(dbResult.rows);
-//     });
-// })
-
 
 app.use((err, req, res, next) => {
   let status = err.status || 500;

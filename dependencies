@@ -10,3 +10,8 @@ yarn add @mui/material @emotion/react @emotion/styled
 npm install pg 
 npm install express-session
 npm install connect-pg-simple
+
+
+react app dependencies:
+material Ui Core
+yarn add swiper
