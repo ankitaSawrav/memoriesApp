@@ -32,8 +32,6 @@ function Menu(props) {
                 <p>Hello {props.user}</p>
                 <NavLink className={({ isActive }) => isActive ? "red" : "blue"}  to='/AddMemories'>Add Memory</NavLink>
                 <br></br>
-                <NavLink className={({ isActive }) => isActive ? "red" : "blue"}  to='/AddMemories'>Delete Memory</NavLink>
-                <br></br>
                 <Button className="logout-btn"   onClick={()=>{handleLogout(props.isLoggedin,props.setIsLoggedin)}}>Logout</Button>
                 </div>
                 )}
