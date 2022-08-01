@@ -1,11 +1,14 @@
 import { Link } from "react-router-dom";
 import axios from "axios"
 import Box from '@mui/material/Box';
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import {useNavigate} from 'react-router-dom';
+import Dropzone from './Dropzone.js'
 
 // https://www.youtube.com/watch?v=fGngPBk4Ioc&t=180s&ab_channel=ckmobile
 function AddMemories({isLoggedin,user,userId}){
+    const [images,setImages] = useState([])
+
 
     const [date,setDate] = useState(null)
     const [memoryTitle,setMemoryTitle] = useState(null)
@@ -13,7 +16,11 @@ function AddMemories({isLoggedin,user,userId}){
     const [image,setMemoryImage] = useState(null)
     const navigate = useNavigate();
 
-    const handleChange=(event)=>{
+    useEffect(()=>{
+        console.log(images, 'add memory')
+      },[images])
+      
+      const handleChange=(event)=>{
         console.log(event.target.className)
         if(event.target.className === 'memory-title'){
             setMemoryTitle(event.target.value)
@@ -29,6 +36,19 @@ function AddMemories({isLoggedin,user,userId}){
     const selectDate = (event)=>{
         setDate(event.target.value)
     }
+// *******************// for cloudinary
+//     const uploadImage = (files)=>{
+//         console.log(files[0])
+//         const formData= new FormData()
+//         formData.append("file",files[0])
+//         formData.append("upload_preset","al7y26sx")
+        
+//         axios.post("https://api/cloudinary.com/v1_1/dmbyqfa3f/image/upload",formData)
+//         .then((response)=>{
+//             console.log(response,"cloudinary response")
+//         })
+//     }
+
     const handleSubmit = (event)=>{
 
         event.preventDefault()
@@ -37,10 +57,13 @@ function AddMemories({isLoggedin,user,userId}){
             "userid":userId,
             "memory_date":date,
             "memory_description":description ,
-            "memory_file":image,
+            "memory_file":images,
             "title":memoryTitle
         }
         console.log(memoryData,"memoryData")
+        
+
+
         axios.post("/api/memories",memoryData)
         .then((response)=>{
             if(response.data.success){
@@ -88,7 +111,14 @@ function AddMemories({isLoggedin,user,userId}){
                         name='memory-image' 
                         onChange={(event) => handleChange(event)}
                     />
-                    
+                    {/* file upload to cloudinary
+                    <input 
+                        type="file"
+                        onChange={(event)=>{
+                            uploadImage(event.target.value)
+                        }}
+                    /> */}
+                    <Dropzone setImagesProps={setImages} images={images}></Dropzone>
                     <label className="memory_date-label" htmlFor="memory_date">Date:</label>
                     <input 
                         className="memory_date"

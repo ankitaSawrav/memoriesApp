@@ -1,0 +1,7 @@
+.selected-images {
+    height: 70px;
+    width:70px;
+    object-fit: cover;
+    margin: 16px;
+    background-color: cadetblue;
+}

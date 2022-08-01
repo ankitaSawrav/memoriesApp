@@ -5,6 +5,10 @@ const db = require("./database/db.js");
 const app = express();
 const expressSession = require("express-session");
 const pgSession = require("connect-pg-simple")(expressSession);
+
+
+
+
 //controllers
 const userControllers = require("./controllers/users.js");
 const memoriesController = require("./controllers/memories.js");
@@ -15,7 +19,7 @@ const port = process.env.PORT || 3001 // using different port than normal one
 
 
 app.use(express.static('./client/build'))
-app.use(express.json());
+app.use(express.json({limit: '20mb'}));
 
 //code for create session
 app.use(
@@ -37,6 +41,7 @@ app.use((req, res, next) => {
 app.use("/api/users", userControllers);
 app.use("/api/session",sessionController)
 app.use("/api/memories",memoriesController)
+
 
 app.get('/api/test', (req, res) => {   
         res.json({results:"success"})
