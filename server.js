@@ -1,7 +1,7 @@
 const express = require("express");
 require("dotenv").config();
 const pg = require("pg");
-const db = require("./database/db.js");
+const db = require("../memoriesapp/database/db.js");
 const app = express();
 const expressSession = require("express-session");
 const pgSession = require("connect-pg-simple")(expressSession);
