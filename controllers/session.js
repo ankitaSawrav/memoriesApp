@@ -1,6 +1,6 @@
 const express = require("express")
 const session = require("express-session")
-const db = require("/Users/ankitasawrav/Documents/sei/sei-course/memoriesapp/database/db.js")
+const db = require("../database/db.js")
 const router = express.Router()
 const bcrypt = require("bcrypt")
 
