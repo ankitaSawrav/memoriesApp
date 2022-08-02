@@ -28,7 +28,7 @@ app.use(
       pool: db,
       createTableIfMissing: true,
     }),
-    secret: "here ",
+    secret: process.env.EXPRESS_SESSION_SECRET_KEY,
   })
 );
 

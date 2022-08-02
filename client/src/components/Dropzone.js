@@ -4,7 +4,9 @@ import './dropzone.css'
 
 
 function Dropzone(props){
-    // const [images,setImages] = useState([])
+    
+
+    // for cloudinary folder  https://www.youtube.com/watch?v=TBOkDQEBPIU&ab_channel=yoursTRULY
 
 const onDrop = useCallback(acceptedFiles => {
         // Do something with the files

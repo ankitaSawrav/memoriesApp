@@ -57,19 +57,24 @@ class  Signup extends Component{
         .then((response) => {
          console.log(response.data)
          if (response.data.success){
-            // this.setState({...this.state,success:true})
-            console.log(this.state,"satet data for success")
+            this.setState({...this.state,errormsg:"",success:true})
+            console.log(this.state,"state data for success")
         //  login padge
-        //    navigate("/login")
+            // navigate("/login")
          }
-          });
-          
+        })
+        .catch((error) => {
+            console.log(error.response.data.message)
+            this.setState({...this.state,errormsg:error.response.data.message})
+            console.log(this.state)
+        })
 
     }
     render(){
         return (
         <div className="container">
             <Box>
+                {this.state.errormsg? <p className="error-message">{this.state.errormsg}</p>: ""}
                 <h1>Signin</h1>
                 <form onSubmit={(event) => this.handleSubmit(event)}>
                     <label className="username-label" htmlFor="username">Username:</label>

@@ -14,6 +14,10 @@ function App() {
   const [user,setUser]= useState('')
   const [userId,setUserid] = useState("")
 
+  const handleLogout= (value) => {
+    setIsLoggedin(value)
+  }
+
   useEffect(()=>{
     axios.get('api/session')
     .then((response)=>{
@@ -21,21 +25,22 @@ function App() {
       if(response.status===401){
         setIsLoggedin(false)
       }
-      else{
-        
+      else{ 
         setIsLoggedin(true)
         setUser(response.data.name)
         setUserid(response.data.id)
-      }
-      
-    },isLoggedin)
+      } 
+    })
+    .catch((error)=>{
+      console.log("on page App.js,line 33",error.response.data)
+    })
   
-  })  
+  },[isLoggedin])  
   return (
     <div className="App">
       
         <BrowserRouter>
-        <Menu isLoggedin={isLoggedin} user={user} userId={userId} />
+        <Menu isLoggedin={isLoggedin} setLogout={(value)=>handleLogout(value)} user={user} userId={userId} />
 
         <Routes>
 

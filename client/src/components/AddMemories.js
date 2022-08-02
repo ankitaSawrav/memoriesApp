@@ -28,26 +28,11 @@ function AddMemories({isLoggedin,user,userId}){
         if(event.target.className === 'description'){
             setMemoryDescription(event.target.value)
         }
-        if(event.target.className === 'memory-image'){
-            setMemoryImage(event.target.value)
-        }
-
     }
     const selectDate = (event)=>{
         setDate(event.target.value)
     }
-// *******************// for cloudinary
-//     const uploadImage = (files)=>{
-//         console.log(files[0])
-//         const formData= new FormData()
-//         formData.append("file",files[0])
-//         formData.append("upload_preset","al7y26sx")
-        
-//         axios.post("https://api/cloudinary.com/v1_1/dmbyqfa3f/image/upload",formData)
-//         .then((response)=>{
-//             console.log(response,"cloudinary response")
-//         })
-//     }
+
 
     const handleSubmit = (event)=>{
 
@@ -73,6 +58,9 @@ function AddMemories({isLoggedin,user,userId}){
                 //write the logic tfor handle error TBC
                 console.log(response.data)
             }
+        })
+        .catch(error=>{
+            console.log(error," on line 63 add memories")
         })
        
     }
@@ -104,20 +92,8 @@ function AddMemories({isLoggedin,user,userId}){
                         name='description' 
                         onChange={(event) => handleChange(event)}
                     />
-                    <label className="memory-image-label" htmlFor="memory-image">ImageURL:</label>
-                    <input 
-                        className="memory-image"
-                        type="text" 
-                        name='memory-image' 
-                        onChange={(event) => handleChange(event)}
-                    />
-                    {/* file upload to cloudinary
-                    <input 
-                        type="file"
-                        onChange={(event)=>{
-                            uploadImage(event.target.value)
-                        }}
-                    /> */}
+                  
+                  
                     <Dropzone setImagesProps={setImages} images={images}></Dropzone>
                     <label className="memory_date-label" htmlFor="memory_date">Date:</label>
                     <input 

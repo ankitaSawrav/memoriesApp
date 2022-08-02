@@ -1,8 +1,8 @@
 import Memories from './Memories'
 
 function HomePage ({isLoggedin, user,userId}){
-    console.log(isLoggedin,"islogedin at homepage ")
-    console.log(userId,"userId as displayed on homepage")
+    // console.log(isLoggedin,"islogedin at homepage ")
+    // console.log(userId,"userId as displayed on homepage")
     return (
        
         <div className="container"> 

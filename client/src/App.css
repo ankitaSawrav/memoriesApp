@@ -51,3 +51,8 @@
   border:5px dotted gray;
   background-color: #cfd8da;
 }
+
+.error-message {
+  color:#b22222;
+  font-weight: bold;
+}

@@ -1,10 +1,7 @@
 import axios from "axios"
 // import AddMemories from "./AddMemories.js"
 import Memory from "./Memory.js"
-import {
-    useEffect,
-    useState
-} from 'react';
+import {useEffect,  useState} from 'react';
 // hardcoded Sample data
 // const memoriesDataOld =  [
 
@@ -51,8 +48,10 @@ function Memories(props) {
         }
     }
     const handleDelete = () => {
-        
         console.log("in delete")
+        if (selectedMemories.length===0){
+            
+        }
         selectedMemories.forEach(element => {
             
         axios.delete(`api/memories/${element}`,element)
@@ -76,29 +75,32 @@ function Memories(props) {
 
     useEffect(() => {
         refreshMemories()
-    }, [])
+    },[])
     // 
     return(<div className = "Main-container" >
-        <button className = "delete" onClick = {handleDelete} > Delete Button </button> 
-        <div className = "Memory" >
-            { memoriesData.map((memoryItem, index) =>{
-                return <Memory memoryItem = {memoryItem}
-                key = {index}
-                userId = {props.userId}
-                id = {props.id}
-                index = {index}
-//prev approach not nowrking as id was getting displayed as undefined 
-// onSelect = {()=>{selectMemory(props.id)}}
-                onSelect = {
-                        (memoryId, checkBoxValue) => {
-                            selectMemory(memoryId, checkBoxValue)
-                        }
-                    } >
-        </Memory>
-            })}
-               
-        </div>
-    
+        {(memoriesData.length===0? <p> Lets create some more Memories!!</p>:
+        <div className="Memories-container">
+            <button className = "delete" onClick = {handleDelete} > Delete Button </button> 
+            <div className = "Memory" >
+                { memoriesData.map((memoryItem, index) =>{
+                    return (
+                    <Memory memoryItem = {memoryItem}
+                        key = {index}
+                        userId = {props.userId}
+                        id = {props.id}
+                        index = {index}
+                        //prev approach not nowrking as id was getting displayed as undefined 
+                        // onSelect = {()=>{selectMemory(props.id)}}
+                        onSelect = {
+                                (memoryId, checkBoxValue) => {
+                                    selectMemory(memoryId, checkBoxValue)
+                                }
+                            } >
+                    </Memory>)
+                })}
+                
+            </div>
+        </div>)}
     </div>)
 
 }

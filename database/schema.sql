@@ -3,8 +3,8 @@ DROP TABLE IF EXISTS memories_data Cascade;
 
 CREATE TABLE users (
     id serial PRIMARY KEY,
-    username VARCHAR(255),
-    email text ,
+    username VARCHAR(255) ,
+    email text UNIQUE,
     password_hash VARCHAR(255)  
 );
 CREATE TABLE memories_data (
