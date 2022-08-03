@@ -1,5 +1,6 @@
 INSERT INTO users (username, email, password_hash) VALUES ('chino','chino@example.com','password');
 INSERT INTO users (username, email, password_hash) VALUES ('ba','ba@example.com','password');
+INSERT INTO users (username, email, password_hash) VALUES ('chino','chino@example.com','password');
 
 -- id serial PRIMARY KEY,
 --     userid integer REFERENCES users(id),

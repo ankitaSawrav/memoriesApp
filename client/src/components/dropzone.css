@@ -3,5 +3,11 @@
     width:70px;
     object-fit: cover;
     margin: 16px;
-    background-color: cadetblue;
+    background-color: white;
+}
+.dropzone {
+    height: 200px;
+    width: 500px;
+    border: 5px dotted gray;
+    background-color: white;
 }

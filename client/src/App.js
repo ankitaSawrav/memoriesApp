@@ -36,8 +36,11 @@ function App() {
     })
   
   },[isLoggedin])  
+  // <div style={{ 
+ 
+
   return (
-    <div className="App">
+    <div className="App" >
       
         <BrowserRouter>
         <Menu isLoggedin={isLoggedin} setLogout={(value)=>handleLogout(value)} user={user} userId={userId} />

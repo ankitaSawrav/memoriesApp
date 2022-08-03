@@ -1,8 +1,6 @@
+// import { Grid , Paper ,TextField } from'@material-ui/core'
+import './signup.css'
 
-
-import Box from '@mui/material/Box';
-
-// import { BrowserRouter, Routes, Route} from "react-router-dom";
 import axios from 'axios';
 import { useState} from 'react';
 import { Link } from "react-router-dom";
@@ -10,11 +8,11 @@ import {useNavigate} from 'react-router-dom';
 
 
 
-
 function Login(props){
     console.log(props,"props")
     const[useremail,setEmail]= useState("")
     const[password,setPassword]= useState("")
+    const[errorMsg,setErrorMsg]= useState("")
     const navigate = useNavigate();
     const handleChange=(event)=>{
         if(event.target.className === "email"){
@@ -47,19 +45,20 @@ function Login(props){
       })
       .catch(error=>{
         console.log(error.response.data.message,"error")
+        setErrorMsg(error.response.data.message)
+
       })
-
-  
     }
-
-
+    // code to style
+        const paperStyle= {padding:20, height:'70vh', width:280, margin:"20px auto"}
 
     return (
-        !props.isLoggedin? 
-         <div className="container-login">
-            <Box>
-                <h1>Login</h1>
-                <form onSubmit={(event) => handleSubmit(event)}>
+        <div className='loginContainer'>
+        {!props.isLoggedin? 
+         <div className="login-form">
+                {errorMsg? <p>{errorMsg}</p>:""}
+                <h1 className='title'>Login</h1>
+                <form className='form' onSubmit={(event) => handleSubmit(event)}>
                     {/* <label className="username-label" htmlFor="username">Username:</label>
                         <input 
                             className="username"
@@ -68,22 +67,28 @@ function Login(props){
                             name='username' 
                             onChange={(event) => handleChange(event)}
                         /> */}
-                        <label className="email-label"htmlFor="email">email:</label>
+                        <div className= "inputContainer">
+                        <label className="email-label"htmlFor="email" required>Email</label>
                         <input 
                             className="email"
                             type="text" 
                             placeholder='Email' 
                             name='email' 
                             onChange={(event) => handleChange(event)}
+                            required
                         />
-                        <label className="password-label" htmlFor="password">Password:</label>
+                        </div>
+                        <div className= "inputContainer">
+                        <label className="password-label" htmlFor="password">Password</label>
                         <input 
                             className="password"
                             type="password" 
                             placeholder='Password' 
                             name='password' 
                             onChange={(event) => handleChange(event)}
+                            required
                         />
+                        </div>
                         
                         <button className="createUser" 
                             type='submit'
@@ -100,10 +105,10 @@ function Login(props){
                         </span>
                             <Link to='/Signup'>Signup</Link>
                 </form>
-            </Box>     
+
         </div> 
-        : ""
-       
+        : ""}
+    </div>
     )
 }
 

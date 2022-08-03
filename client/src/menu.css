@@ -1,0 +1,91 @@
+/* #homepage-lnk {   
+    grid-column-start: 1;
+    grid-column-end: 2;
+    font-size: x-large;
+    color: white;
+    text-decoration: none;
+    justify-self: start;
+    padding-left: 30px;
+}
+#about-lnk {
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-column-start: 4;
+    grid-column-end: 5;
+    font-size: x-large;
+    color: white;
+    text-decoration: none;
+    justify-self: center;
+}
+nav.nav-bar {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    align-content: space-evenly;
+    align-items: baseline;
+    justify-items: center;
+    width: 100p;
+    height: 68px;
+    background: rgb(70 67 67 / 85%);
+
+}
+
+.login-signup-contr {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-content: space-evenly;
+    align-items: baseline;
+    justify-items: center;
+    width: 100p;
+    font-size: x-large;
+    column-gap: 30px;
+    text-decoration: none;
+}
+
+#signup-lnk {
+    margin-right: 30px;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    align-self: center;
+    justify-self: center;
+    padding-left: 10px;
+    text-decoration: none;
+    color: whitesmoke;
+}
+#login-lnk {
+    margin-right: 30px;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    align-self: center;
+    justify-self: center;
+    padding-left: 10px;
+    text-decoration: none;
+    color: whitesmoke;
+}
+#login-lnk:hover ,#signup-lnk:hover,#about-lnk:hover,#homepage-lnk:hover {
+    color:bisque
+} */
+
+
+#homepage-lnk ,#about-lnk,#signup-lnk,#login-lnk,#add-memo-lnk {
+    justify-self: center;
+    color: whitesmoke;
+    text-decoration: none;
+}
+#logout-lnk {
+    color: whitesmoke;
+    text-decoration: none;
+    font-size: 25px;
+    background: none;
+    border:none
+}
+.nav-bar {
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    font-size: x-large;
+    background: rgb(70 67 67 / 85%);
+    width: 100p;
+    height: 68px;
+    align-items: center;
+}
+

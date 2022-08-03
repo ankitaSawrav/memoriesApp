@@ -39,13 +39,13 @@ router.post('/',(req,res)=>{
       req.session.userId = user.id;
       req.session.name = user.username;
       req.session.email = user.email;
-      return res.json({ message: "logged in successfully" });
+      return res.json({ message: "Logged in successfully" });
       
     }
     else{
       console.log("hele")
 
-    res.status(400).json({ message: "invalid email or password" });
+    res.status(400).json({ message: "Invalid email or password" });
   }
   })
 

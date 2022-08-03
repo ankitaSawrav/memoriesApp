@@ -2,6 +2,7 @@ import axios from "axios"
 // import AddMemories from "./AddMemories.js"
 import Memory from "./Memory.js"
 import {useEffect,  useState} from 'react';
+import './Memory.css';
 // hardcoded Sample data
 // const memoriesDataOld =  [
 
@@ -77,10 +78,10 @@ function Memories(props) {
         refreshMemories()
     },[])
     // 
-    return(<div className = "Main-container" >
-        {(memoriesData.length===0? <p> Lets create some more Memories!!</p>:
+    return(<div className = "main-container" >
+        {(memoriesData.length===0? <p className="tag-msg"> Lets create some more Memories!!</p>:
         <div className="Memories-container">
-            <button className = "delete" onClick = {handleDelete} > Delete Button </button> 
+            <button className = "delete-btn" onClick = {handleDelete} > Delete Button </button> 
             <div className = "Memory" >
                 { memoriesData.map((memoryItem, index) =>{
                     return (

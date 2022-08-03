@@ -33,8 +33,8 @@ const onDrop = useCallback(acceptedFiles => {
         <div className="dropzone" {...getRootProps()}>
             <input {...getInputProps()}/>
             {isDragActive ?
-            <p>Drop the files here ...</p> :
-            <p>Drag 'n' drop some files here..</p>
+            <p>Drop the file here ...</p> :
+            <p>Drag 'n' drop file here..</p>
         }
         {/* only displays this div if images.length >0  */}
         {props.images.length >0 && <div>

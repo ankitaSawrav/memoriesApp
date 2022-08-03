@@ -2,3 +2,8 @@
     height: 270px;
     width:200px
 }
+.tag-msg {
+    text-align: center;
+    background: rgb(158 158 158 / 50%);
+    font-weight: 400;
+}

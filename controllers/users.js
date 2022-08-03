@@ -47,6 +47,7 @@ function generateHash(pass) {
     
         db.query(sql, [username, email, password])
           .then((dbRes) => {
+            console.log(dbRes,"dbRes")
             res.json({ success: true });
           })
           .catch((reason) => {

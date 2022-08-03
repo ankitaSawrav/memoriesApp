@@ -4,6 +4,7 @@ import Box from '@mui/material/Box';
 import {useState, useEffect} from 'react'
 import {useNavigate} from 'react-router-dom';
 import Dropzone from './Dropzone.js'
+import './addMemories.css'
 
 // https://www.youtube.com/watch?v=fGngPBk4Ioc&t=180s&ab_channel=ckmobile
 function AddMemories({isLoggedin,user,userId}){
@@ -72,11 +73,12 @@ function AddMemories({isLoggedin,user,userId}){
     // console.log(date)
     //need to disable the date selectection after current date //lowest Ui priority
     //to react this https://bobbyhadz.com/blog/javascript-format-date-dd-mm-yyyy and do it 
-    return (<div>
+    return (<div className="add-memories-container">
         <h1>Add memories</h1>
         <Box>
-            <form onSubmit = {(event) => handleSubmit(event)}>
-                <label className="title-label" htmlFor="title">Title:</label>
+            <form className="add-memo-contr"onSubmit = {(event) => handleSubmit(event)}>
+               
+                <label className="title-label" htmlFor="title">Title</label>
                     <input 
                         className="memory-title"
                         type="text" 
@@ -84,18 +86,20 @@ function AddMemories({isLoggedin,user,userId}){
                         name='title' 
                         onChange={(event) => handleChange(event)}
                     />
-                    <label className="description-label"htmlFor="description">Description:</label>
-                    <input 
+               
+                    <label className="description-label"htmlFor="description">Description</label>
+                    <textarea 
                         className="description"
-                        type="text" 
+                        type="textarea" 
                         placeholder='description' 
                         name='description' 
                         onChange={(event) => handleChange(event)}
+                        rows="2" cols="50"
                     />
-                  
-                  
+             
+                <div className="img-drop-contr">  
                     <Dropzone setImagesProps={setImages} images={images}></Dropzone>
-                    <label className="memory_date-label" htmlFor="memory_date">Date:</label>
+                    <label className="memory_date-label" htmlFor="memory_date">Date</label>
                     <input 
                         className="memory_date"
                         type="date" 
@@ -103,7 +107,8 @@ function AddMemories({isLoggedin,user,userId}){
                         name='memory_date' 
                         onChange={(event) => selectDate(event)}
                     />
-                    
+                </div> 
+                
                     <button className="create-memory-btn" 
                         type='submit'
                         onSubmit = {(event)=>this.handleSubmit(event)}

@@ -1,9 +1,15 @@
-import { Component } from "react"
-import Box from '@mui/material/Box';
+import { Component } from "react";
+
+import './signup.css';
+// import Alert from '@mui/material/Alert';
+// import { Stack } from "@mui/material";
+
 // import { Autocomplete } from "@mui/material";
 // import { BrowserRouter, Routes, Route } from "react-router-dom";
 import axios from 'axios';
 import { Link } from "react-router-dom";
+import { Grid , Paper } from'@material-ui/core'
+
 
 // import {useNavigate} from 'react-router-dom';
 
@@ -65,19 +71,23 @@ class  Signup extends Component{
         })
         .catch((error) => {
             console.log(error.response.data.message)
-            this.setState({...this.state,errormsg:error.response.data.message})
+            this.setState({...this.state,errormsg:error.response.data.message,success:false})
             console.log(this.state)
         })
 
     }
     render(){
         return (
-        <div className="container">
-            <Box>
-                {this.state.errormsg? <p className="error-message">{this.state.errormsg}</p>: ""}
-                <h1>Signin</h1>
-                <form onSubmit={(event) => this.handleSubmit(event)}>
-                    <label className="username-label" htmlFor="username">Username:</label>
+            <div className="signUp-container">
+                <h1>SignUp</h1>
+                <div className="alert">
+                {/* {this.state.errormsg?  <p className="error-message">{this.state.errormsg}</p>:
+                ""} */}
+                {this.state.success? <p> SignUp Successful!! Please login</p>:<p className="error-message">{this.state.errormsg}</p>}
+                </div>
+                <form className="signup-form" onSubmit={(event) => this.handleSubmit(event)}>
+                <div className= "inputContainer">
+                    <label className="username-label" htmlFor="username">Username</label>
                         <input 
                             className="username"
                             type="text" 
@@ -85,7 +95,9 @@ class  Signup extends Component{
                             name='username' 
                             onChange={(event) => this.handleChange(event)}
                         />
-                        <label className="email-label"htmlFor="email">email:</label>
+                    </div>
+                    <div className= "inputContainer">
+                        <label className="email-label"htmlFor="email">Email</label>
                         <input 
                             className="email"
                             type="text" 
@@ -93,7 +105,9 @@ class  Signup extends Component{
                             name='email' 
                             onChange={(event) => this.handleChange(event)}
                         />
-                        <label className="password-label" htmlFor="password">Password:</label>
+                        </div>
+                    <div className= "inputContainer">
+                    <label className="password-label" htmlFor="password">Password</label>
                         <input 
                             className="password"
                             type="password" 
@@ -101,13 +115,16 @@ class  Signup extends Component{
                             name='password' 
                             onChange={(event) => this.handleChange(event)}
                         />
+                    </div>
+                        
+                        
                         
                         <button className="createUser" 
                             type='submit'
                             onSubmit = {(event)=>this.handleSubmit(event)}
                             >Sign up
                         </button>
-                        <span>
+                        <span className="signup-login-link">
                             Already have an account? 
                             {/* <Routes> */}
                             <Link to='/Login'>Login</Link>
@@ -117,8 +134,10 @@ class  Signup extends Component{
                         
                         </span>
                 </form>
-            </Box>     
+             
         </div>
+
+        
         )
 
  

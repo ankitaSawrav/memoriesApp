@@ -27,7 +27,7 @@ function Memory (props){
             ></input>
             <h1>{props.memoryItem.title}</h1>
             {/* images always put in public folder  not client*/}
-            <img className="image-container" 
+            <img data-testid="memory-image" className="image-container" 
                 src={props.memoryItem.cloudinary_secure_url}>
             </img>  
         <p>{props.memoryItem.memory_description}</p>
