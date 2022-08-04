@@ -6,8 +6,10 @@ import About from "./components/About.js"
 import AddMemories from './components/AddMemories';
 import Signup from "./components/Signup";
 import Login from "./components/Login.js";
+
 import {useEffect, useState} from 'react'
 import axios from 'axios';
+import Collage from "./components/Collage.js"
 
 function App() {
   const [isLoggedin,setIsLoggedin] = useState(false)
@@ -72,6 +74,10 @@ function App() {
             <Route 
               path='/signup' 
               element={<Signup/>}/>
+
+            <Route 
+              path='/collage' 
+              element={<Collage/>}/>
        
       </Routes>
       

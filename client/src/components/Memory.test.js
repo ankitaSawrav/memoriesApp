@@ -28,7 +28,7 @@ test( "test the title of the memory is included correctly for each memory",()=>{
  const para = screen.getByText("hello")
 })
 
-test( "test the image has the coorect src attributes memory",()=>{
+test( "test the image has the correct src attributes memory",()=>{
     const memory = {
            "title": "hello",
            "cloudinary_public_id": "sadasdsf",
