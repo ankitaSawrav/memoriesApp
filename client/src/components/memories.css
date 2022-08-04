@@ -26,9 +26,12 @@
     justify-self: center;
 }
 
-.memory-display-contr {
+/* .memory-display-contr {
     grid-area: memo1;
-}
+    border-radius: 16px;
+    background: #f4f0f0;
+    box-shadow: 6px 6px 12px #a6a3a3, -6px -6px 12px #ffffff;
+} */
 .Memory {
     grid-area: memory;
     display: flex;
@@ -39,16 +42,12 @@
     align-items: center;
 }
 .memory-display-contr {
-    /* display: grid;
-    display: grid;
-    grid-auto-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
-    /* gap: 0px 0px; */
-    /* border: 2px solid; */ 
+    grid-area: memo1;
+    border-radius: 16px;
+    background: #f4f0f0;
+    box-shadow: 6px 6px 12px #2e2d2d, 0px -1px 8px 0px #ffffff;
     display: flex;
     flex-direction: column;
-    border: 1px solid rgb(94, 94, 94);
-    border-radius: 2px;
     margin: 10px;
     background-color: rgb(255 255 250 / 83%);
     align-items: center;
@@ -66,9 +65,6 @@
     grid-area: 3 / 1 / 4 / 2;
     width: 300px;
     opacity: 1;
-    /* image-rendering: auto;
-    image-rendering: crisp-edges;
-    image-rendering: pixelated; */
 }
 .memo-desc{
     grid-area: 4 / 1 / 5 / 2;

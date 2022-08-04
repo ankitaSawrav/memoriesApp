@@ -41,7 +41,7 @@ function App() {
 
   return (
     <div className="App" >
-      
+     
         <BrowserRouter>
         <Menu isLoggedin={isLoggedin} setLogout={(value)=>handleLogout(value)} user={user} userId={userId} />
 
@@ -76,7 +76,8 @@ function App() {
       </Routes>
       
         </BrowserRouter>
-    </div>
+      </div>
+    
   );
 }
 
