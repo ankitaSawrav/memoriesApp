@@ -9,7 +9,7 @@ import Login from "./components/Login.js";
 
 import {useEffect, useState} from 'react'
 import axios from 'axios';
-import Collage from "./components/Collage.js"
+// import Collage from "../../../test/Collage.js"
 
 function App() {
   const [isLoggedin,setIsLoggedin] = useState(false)
@@ -75,9 +75,9 @@ function App() {
               path='/signup' 
               element={<Signup/>}/>
 
-            <Route 
+            {/* <Route 
               path='/collage' 
-              element={<Collage/>}/>
+              element={<Collage/>}/> */}
        
       </Routes>
       
