@@ -1,4 +1,5 @@
 import Memories from './Memories'
+import './homepage.css'
 
 function HomePage ({isLoggedin, user,userId}){
     // console.log(isLoggedin,"islogedin at homepage ")
@@ -9,7 +10,7 @@ function HomePage ({isLoggedin, user,userId}){
         <div className="container"> 
         <h1 className="user-greeting">Welcome back {user.toUpperCase()}!!</h1>
         {(isLoggedin? 
-            <Memories user={user} userId={userId}></Memories>: <p>you need to Login to view your memories</p>
+            <Memories user={user} userId={userId}></Memories>: <p className='msg-info'>Login to view your memories..</p>
         )}
         
       
