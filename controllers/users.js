@@ -4,14 +4,6 @@ const db = require("../database/db.js")
 const router = express.Router()
 const bcrypt = require("bcrypt")
 
-function generateHash(pass) {
-    return bcrypt.hashSync(pass, bcrypt.genSaltSync(10), null);
-  }
-//   let passwordHash = generateHash(password);
-
-//   let name = req.body.name;
-//   let email = req.body.email;
-//   let password = req.body.password;
 
   router.get("/", (req, res) => {
    
@@ -27,10 +19,10 @@ function generateHash(pass) {
     let password = req.body.password
     console.log(req.body,"req")
 
-    // function generateHash(pass) {
-    //     return bcrypt.hashSync(pass, bcrypt.genSaltSync(10), null);
-    //   }
-    //   let passwordHash = generateHash(password);
+    function generateHash(pass) {
+        return bcrypt.hashSync(pass, bcrypt.genSaltSync(10), null);
+      }
+      let passwordHash = generateHash(password);
       
       if (username === undefined || username === "") {
         res.status(400).json({ success: false, message: "name is required" });
@@ -45,7 +37,7 @@ function generateHash(pass) {
       } else {
         const sql = `INSERT INTO users (username, email, password_hash) VALUES ($1, $2, $3)`;
     
-        db.query(sql, [username, email, password])
+        db.query(sql, [username, email, passwordHash])
           .then((dbRes) => {
             console.log(dbRes,"dbRes")
             res.json({ success: true });

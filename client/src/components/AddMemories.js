@@ -22,7 +22,7 @@ function AddMemories({isLoggedin,user,userId}){
       },[images])
       
       const handleChange=(event)=>{
-        console.log(event.target.className)
+        
         if(event.target.className === 'memory-title'){
             setMemoryTitle(event.target.value)
         }

@@ -34,7 +34,8 @@ router.post('/',(req,res)=>{
     const user = dbResult.rows[0];
     // console.log(user,"user")
 
-    if (user && password===user.password_hash) {
+    if (user && isValidPassword(password, user.password_hash)) {
+    // if (user && password===user.password_hash) {
       console.log("match")
       req.session.userId = user.id;
       req.session.name = user.username;
