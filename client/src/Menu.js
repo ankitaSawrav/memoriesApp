@@ -28,7 +28,7 @@ function Menu(props) {
                 
                 
                 {props.isLoggedin? <NavLink id="add-memo-lnk" className={({ isActive }) => isActive ? "red" : "blue"}  to='/AddMemories'>Add Memory</NavLink>:""}
-                
+                {props.isLoggedin? <NavLink id="add-memo-lnk" className={({ isActive }) => isActive ? "red" : "blue"}  to='/Favourite'>Favourite</NavLink>:""}
                 {props.isLoggedin?<button id="logout-lnk" className="logout-btn"   onClick={handleLogoutClick}>Logout</button>:""}
             </nav>
         </div>

@@ -11,12 +11,12 @@ cloudinary.config({
 
 
 
-router.get("/", (req, res) => {
-  const sql = "SELECT * FROM memories_data";
-  db.query(sql).then((dbResult) => {
-    res.json(dbResult.rows);
-  });
-});
+// router.get("/", (req, res) => {
+//   const sql = "SELECT * FROM memories_data";
+//   db.query(sql).then((dbResult) => {
+//     res.json(dbResult.rows);
+//   });
+// });
 
 router.get("/:userId", (req, res) => {
   const userId = req.params.userId
@@ -66,6 +66,20 @@ router.post("/",async (req, res) => {
 
 })
 
+//
+router.put('/:memoryid',(req,res)=>{
+  let memoryId = req.params.memoryid
+  value = true
+  console.log(memoryId,"in put")
+  const sql = `UPDATE memories_data SET favourite=$1 where id=$2`
+  db.query(sql,[value,memoryId]).then((dbRes)=>{
+    console.log(dbRes, "line76 memories fav value")
+    res.json({
+      success: true
+    });
+  })
+
+})
 router.delete("/:id",async (req, res) => {
   try {
     

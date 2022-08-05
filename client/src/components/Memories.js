@@ -24,10 +24,10 @@ import "./memories.css"
 
 // ]
 function Memories(props) {
-    const userId = props.userId
+    let userId = props.userId
 
-    console.log(userId, "memories")
-    const [memoriesData, setMemoriesData] = useState([])
+    console.log(userId, "user id memories")
+    const [memoriesData, setMemoriesData] = useState([])        
     const [selectedMemories, setSelectedMemories] = useState([]) //array to 
 
     const selectMemory = (memoryId, checkBoxValue) => {
@@ -67,14 +67,27 @@ function Memories(props) {
         });
  
     }
+    const handleAddToFav=(event)=>{
+        console.log("handle Favourite",selectedMemories,"selectedMemories")
+        selectedMemories.forEach(element => {
+            
+
+            axios.put(`api/memories/${element}`,element)
+                .then((response)=>{
+                    console.log(response.data,"fav response")
+                    // refreshMemories()
+                    console.log(selectedMemories,"selected memories")
+                    
+                })
+            });
+    }
     
     const refreshMemories = ()=> {
-        console.log(userId)
+        console.log(userId,"in refresh memories")
         axios.get(`/api/memories/${userId}`)
             .then(response => {
                 console.log(response.data)
                 setMemoriesData(response.data)
-
             })
     }
 
@@ -86,6 +99,7 @@ function Memories(props) {
         {(memoriesData.length===0? <p className="tag-msg"> Lets create some more Memories!!</p>:
         <div className="Memories-container">
             <button className = "delete-btn" onClick = {handleDelete} > Delete Button </button> 
+            <button className="add-favourite" onClick={handleAddToFav}>Add to favourite </button>
             <div className = "Memory" >
                 { memoriesData.map((memoryItem, index) =>{
                     return (

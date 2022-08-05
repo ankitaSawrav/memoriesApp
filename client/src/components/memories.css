@@ -15,7 +15,7 @@
     grid-template-rows: .2fr 1fr;
     gap: 0px 0px;
     grid-template-areas:
-        ". button ."
+        "fbutton button ."
         "memory memory memory";
 
 }
@@ -23,7 +23,12 @@
  
     align-self: center;
     grid-area: button;
-    justify-self: center;
+    justify-self: end;
+}
+.add-favourite {
+    align-self: center;
+    grid-area: fbutton;
+    justify-self: end;
 }
 
 /* .memory-display-contr {
@@ -37,7 +42,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    border: 2px solid green;
+   
     justify-content: center;
     align-items: center;
 }

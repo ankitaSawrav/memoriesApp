@@ -6,6 +6,7 @@ import About from "./components/About.js"
 import AddMemories from './components/AddMemories';
 import Signup from "./components/Signup";
 import Login from "./components/Login.js";
+import Favourite from "./components/Favourite.js"
 
 
 
@@ -81,9 +82,12 @@ function App() {
               path='/signup' 
               element={<Signup/>}/>
 
-            {/* <Route 
-              path='/collage' 
-              element={<Collage/>}/> */}
+            <Route 
+              path='/favourite' 
+              element={<Favourite 
+                          isLoggedin={isLoggedin}
+                          user={user}
+                          userId={userId}/>}/>
        
       </Routes>
       

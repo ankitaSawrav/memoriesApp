@@ -81,7 +81,7 @@ nav.nav-bar {
 .nav-bar {
 
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     font-size: x-large;
     background: rgb(70 67 67 / 85%);
     width: 100p;

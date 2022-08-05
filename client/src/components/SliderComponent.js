@@ -1,5 +1,4 @@
 
-
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -11,7 +10,8 @@ import { Navigation, Pagination, Autoplay } from 'swiper';
 
 
 
-function SliderComponent() {
+
+function SliderComponent({images}) {
     console.log("swiper")
     // function random(min, max) {
     //     return Math.floor(Math.random() * (max - min + 1) + min);
@@ -27,7 +27,7 @@ function SliderComponent() {
     //         return item
     //     })
     // }
-      const images =["/images/coast.jpg","/images/toddlerplaysand.jpg"]
+      // const images =["/images/coast.jpg","/images/toddlerplaysand.jpg"]
       console.log(images.length,"length")
     //   ,"/images/toddlerplaysand.jpg","/images/cat.jpg","/images/child.jpg"]
     //   function createSlide(item) {
@@ -53,7 +53,7 @@ function SliderComponent() {
                 {images.map((item,index)=>{
              
                  return(  <SwiperSlide>
-                         <img className="img" src='/images/child.jpg' alt="cghfgh" ></img>
+                         <img className="img" src={item} alt="cghfgh" ></img>
                     </SwiperSlide>  )  
              
                 })

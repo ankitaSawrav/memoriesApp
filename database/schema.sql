@@ -14,5 +14,6 @@ CREATE TABLE memories_data (
     cloudinary_public_id VARCHAR,
     cloudinary_secure_url VARCHAR,
     memory_description text,
-    memory_date DATE NOT NULL DEFAULT CURRENT_DATE
+    memory_date DATE NOT NULL DEFAULT CURRENT_DATE,
+    favourite boolean
 );
