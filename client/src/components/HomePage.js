@@ -9,9 +9,11 @@ function HomePage ({isLoggedin, user,userId}){
     return (
        
         <div className="container"> 
-        <h1 className="user-greeting">Welcome back {user.toUpperCase()}!!</h1>
         {(isLoggedin? 
-            <Memories user={user} userId={userId}></Memories>: 
+        <div>
+            <h1 className="user-greeting">Welcome back {user.toUpperCase()}!!</h1>
+            <Memories user={user} userId={userId}></Memories>
+            </div>: 
             <div> 
                 
                 <p className='msg-info'>Login to view your memories..</p>

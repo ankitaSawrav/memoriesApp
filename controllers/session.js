@@ -32,7 +32,7 @@ router.post('/',(req,res)=>{
     console.log("sql ",sql)
     console.log(dbResult,"result")
     const user = dbResult.rows[0];
-    console.log(user,"user")
+    // console.log(user,"user")
 
     if (user && password===user.password_hash) {
       console.log("match")
@@ -43,8 +43,8 @@ router.post('/',(req,res)=>{
       
     }
     else{
-      console.log("hele")
-
+    // console.log("hele")
+    
     res.status(400).json({ message: "Invalid email or password" });
   }
   })

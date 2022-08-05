@@ -80,7 +80,7 @@ function Memories(props) {
 
     useEffect(() => {
         refreshMemories()
-    },[])
+    },[props.userId,props.user])
     
     return(<div className = "main-container" >
         {(memoriesData.length===0? <p className="tag-msg"> Lets create some more Memories!!</p>:

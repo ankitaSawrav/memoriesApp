@@ -13,12 +13,12 @@ import Typography from '@mui/material/Typography';
 import Checkbox from '@mui/material/Checkbox';
 
 function Memory (props){
-        console.log(props.userId,"userID in memory")
+        // console.log(props.userId,"userID in memory")
     
     const handleCheckBox=(event)=>{
-        console.log(event.target.checked,"checking checkbox value")
+        // console.log(event.target.checked,"checking checkbox value")
         
-        console.log(event.target.id,"id")
+        // console.log(event.target.id,"id")
         // props.onSelect(props.memoryItem.id)
         props.onSelect(event.target.id,event.target.checked)
                

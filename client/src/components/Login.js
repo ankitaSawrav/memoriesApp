@@ -16,12 +16,12 @@ function Login(props){
     const navigate = useNavigate();
     const handleChange=(event)=>{
         if(event.target.className === "email"){
-            console.log("inhere ")
+            // console.log("inhere ")
             // setEmail({[event.target.className]:event.target.value})
             setEmail(event.target.value)
         }
         if(event.target.className === "password"){
-            console.log("inhere ")
+            // console.log("inhere ")
             // setPassword({[event.target.className]:event.target.value})
             setPassword(event.target.value);
         }
@@ -35,7 +35,7 @@ function Login(props){
         "useremail":useremail,
         "password":password
       }
-      console.log(data,"data")
+    //   console.log(data,"data")
       axios.post("/api/session", data)
       .then((response)=>{
         console.log(response.data,"response")
@@ -44,7 +44,7 @@ function Login(props){
         
       })
       .catch(error=>{
-        console.log(error.response.data.message,"error")
+        // console.log(error.response.data.message,"error")
         setErrorMsg(error.response.data.message)
 
       })

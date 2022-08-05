@@ -7,6 +7,8 @@ import AddMemories from './components/AddMemories';
 import Signup from "./components/Signup";
 import Login from "./components/Login.js";
 
+
+
 import {useEffect, useState} from 'react'
 import axios from 'axios';
 // import Collage from "../../../test/Collage.js"
@@ -18,6 +20,9 @@ function App() {
 
   const handleLogout= (value) => {
     setIsLoggedin(value)
+    setUserid('')
+    console.log(userId,isLoggedin,user,"data as on line 24 app.js")
+    
   }
 
   useEffect(()=>{
@@ -45,6 +50,7 @@ function App() {
     <div className="App" >
      
         <BrowserRouter>
+
         <Menu isLoggedin={isLoggedin} setLogout={(value)=>handleLogout(value)} user={user} userId={userId} />
 
         <Routes>

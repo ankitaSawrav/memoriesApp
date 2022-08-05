@@ -12,6 +12,7 @@ function Menu(props) {
     const handleLogoutClick = ()=>{
         console.log("inhere for logout-Menu")
         props.setLogout(false)
+       
         axios.delete("/api/session").then(() => {
             navigate('/')
         })

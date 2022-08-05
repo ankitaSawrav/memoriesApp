@@ -38,7 +38,7 @@ function AddMemories({isLoggedin,user,userId}){
     const handleSubmit = (event)=>{
 
         event.preventDefault()
-        console.log("in handle Submit")
+        // console.log("in handle Submit")
         const memoryData = {
             "userid":userId,
             "memory_date":date,
