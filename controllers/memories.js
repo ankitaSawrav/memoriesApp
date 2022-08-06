@@ -41,6 +41,8 @@ router.post("/",async (req, res) => {
     const response = await cloudinary.uploader.upload(memory_file[0],{folder: userid})
     console.log(response)
     
+
+    
     const cloudinary_secure_url = response.secure_url
     const cloudinary_public_id = response.public_id
 
