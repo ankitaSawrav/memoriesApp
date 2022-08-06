@@ -1,13 +1,12 @@
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
-import MockAdapter from "axios-mock-adapter";
 import axios from "axios";
+import Memories from './Memories.js'
+import MockAdapter from "axios-mock-adapter";
+
 const originalEnv = process.env;
 let mockAxios;
 beforeAll(() => {
     // Before we run any tests, set up the mock version of axios
-    process.env = {
-      REACT_APP_TMDB_API_KEY: "PRETEND_FILM_API_KEY",
-    };
     mockAxios = new MockAdapter(axios);
   });
   
@@ -40,11 +39,11 @@ test("api call the database and gets memories information",()=>{
                 ]
 
 
-    mockAxios.onGet().reply(200, mockResponseData);
+    mockAxios.onGet().reply(200, memory);
     render(<Memories></Memories>)
 
 
-    await waitFor(() => expect(screen.getAllByTestId("memory-image")));
+    waitFor(() => expect(screen.getAllByTestId("memory-image")));
     const img = screen.getAllByTestId("memory-image")
     expect(img.length).toEqual(2)
 

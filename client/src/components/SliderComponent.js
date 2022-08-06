@@ -1,4 +1,3 @@
-
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -8,18 +7,14 @@ import './sliderComponent.css'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper';
 
-
-
-
-function SliderComponent({images}) {
-     
+function SliderComponent({images}) {     
     return(
         <div className="slider-div">
             <Swiper
                 modules={[Navigation, Pagination,Autoplay]}
                 slidesPerView={1}
                 navigation
-                autoplay={{ delay: 4000 }}
+                autoplay={{ delay: 1000 }}
                 pagination={{ clickable: true }}
                 height='60%'
                 >

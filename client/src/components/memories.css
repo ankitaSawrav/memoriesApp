@@ -45,6 +45,7 @@
    
     justify-content: center;
     align-items: center;
+    background: rgb(245 245 245 / 53%);
 }
 .memory-display-contr {
     grid-area: memo1;
@@ -74,3 +75,19 @@
 .memo-desc{
     grid-area: 4 / 1 / 5 / 2;
 }
+
+.delete-btn,.add-favourite {
+    display: block;
+    margin-left: auto;
+    padding: 15px 30px;
+    border: none;
+    background-color: purple;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 30px;
+    opacity: 90%;
+  }
+  
+ 

@@ -78,6 +78,7 @@ function Memories(props) {
                     // refreshMemories()
                     console.log(selectedMemories,"selected memories")
                     
+                    
                 })
             });
     }
@@ -121,42 +122,6 @@ function Memories(props) {
             </div>
         </div>)}
     </div>)
-
-    
-    // return (
-    //     <div className = "main-container">
-    //          {(memoriesData.length===0? <p className="tag-msg"> Lets create some more Memories!!</p>: 
-    //                 <div className="Memories-container"> 
-    //                     <button className = "delete-btn" onClick = {handleDelete} > Delete Button </button> 
-    //                     <Box sx={{padding: "10px"}} xs={4} m={5}>
-    //                     <Grid sx={{padding: "10px"}} container spacing={2} margin={2}>
-    //                         { memoriesData.map((memoryItem, index) =>{
-    //                             return (
-    //                                 <Grid xs={3} item key = {index}>
-    //                                     <Memory memoryItem = {memoryItem}
-                                            
-    //                                         userId = {props.userId}
-    //                                         id = {props.id}
-    //                                         index = {index}
-    //                                         //prev approach not nowrking as id was getting displayed as undefined 
-    //                                         // onSelect = {()=>{selectMemory(props.id)}}
-    //                                         onSelect = {
-    //                                                 (memoryId, checkBoxValue) => {
-    //                                                     selectMemory(memoryId, checkBoxValue)
-    //                                                 }
-    //                                             } >
-    //                                     </Memory>
-    //                                 </Grid >
-    //                             )
-    //                         })}
-
-    //                     </Grid>
-    //                     </Box>
-    //                 </div> 
-    //         )}
-    //     </div>
-
-    // )
 
 }
 export default Memories;

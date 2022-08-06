@@ -55,6 +55,11 @@ app.use((err, req, res, next) => {
   next(err);
 });
 
+
+// /* final catch-all route to index.html defined last */
+app.get('/*', (req, res) => {
+  res.sendFile(__dirname + '/client/build/index.html');
+})
 // start the web server
 app.listen(port, () => {
     console.log(`listening on port http://localhost:${port}`);

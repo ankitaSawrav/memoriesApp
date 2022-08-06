@@ -1,14 +1,18 @@
+import '../App.css';
 function About (){
     return (
         <div className="About-countainer" >
-            <h1>
-                <p>
-                    Lorem ipsum odor amet, consectetuer adipiscing elit. Ac purus in massa egestas mollis varius;
-                    dignissim elementum. Mollis tincidunt mattis hendrerit dolor eros enim, nisi ligula ornare.
-                    Hendrerit parturient habitant pharetra rutrum gravida porttitor eros feugiat. Mollis elit
-                    sodales taciti duis praesent id. Consequat urna vitae morbi nunc congue.
-                </p>
-            </h1>
+            <h1 className="Title"> Yaadein ....</h1>
+            <p> There are songs, there are complaints
+                There are stories, there are words....
+                Conversations are forgotten
+                Memories are remembered..
+            </p>
+            <p>
+                This is where you can create your memories
+                Look back & Cherish them 
+            </p>
+            <footer>Created by Ankita</footer>
         </div>
 
     )
