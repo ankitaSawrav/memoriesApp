@@ -76,10 +76,10 @@ _______________
  
 ___________
 ## DataBase Setup 
-``` $ create db plantr 
-    $ psql plantr 
-    $ psql -d plantr <db/schema.sql
-    $ psql -d plantr <db/seed.sql
+``` $ create db memories 
+    $ psql memories 
+    $ psql -d memories <db/schema.sql
+    $ psql -d memories <db/seed.sql
 
 ```
 
@@ -96,5 +96,5 @@ ___________
 
 # Goals not reached and Complications :
 Unfortunately there were a few goals that were not implemented,
-- setting reminders for watering and care scheduals.
-- Unable to find a plant api that would intergate with our application as needed.
+- setting up favoutive as a collage which can be downloaded.
+- shows no of days since the memory.
