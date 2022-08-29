@@ -72,7 +72,7 @@ ________
 
 _______________
 ## Design Planning
- 
+ - Decided upon database structurea nad table structure 
  
 ___________
 ## DataBase Setup 
@@ -83,16 +83,11 @@ ___________
 
 ```
 
-# Instructions for Npm installation
-```
+# Instructions for Npm installation 
+``` 
     $ npm install 
     $ npm start
     $ npm run start-dev
-
-```
-##Installation Steps :
-``` 
-```
 
 # Goals not reached and Complications :
 Unfortunately there were a few goals that were not implemented,
